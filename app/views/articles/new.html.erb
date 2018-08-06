@@ -1,0 +1,19 @@
+<div style="text-align:center;">
+
+<h1>create an article</h1>
+
+<%= form_for @article do |f| %>
+<p>
+<%= f.label :title %><br/>
+<%= f.text_field :title %>
+</P>
+<p>
+<%= f.label :Description %><br/>
+<%= f.text_area :description %>
+</p>
+<p>
+<%= f.submit %>
+</p>
+<% end %>
+
+</div>
