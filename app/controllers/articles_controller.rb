@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-
+before_action :set_article, only: [:edit, :update,:destroy,:show] #do this before anythi
 
 def index
 @articles = Article.all
@@ -8,10 +8,14 @@ end
 
 def destroy
 
-@article = Article.find(params[:id])
+
+#find article by it's id
 @article.destroy
+#destroy action from model
 flash[:notice] = "Article was successfully deleted"
+#show notice that it was destroyed
 redirect_to articles_path
+#Redirect to articles
 
 end
 
@@ -44,7 +48,7 @@ end
 
 def update
 
-@article= Article.find(params[:id])
+set_article
 #the article that you are looking for found by its ID
 
 
@@ -64,14 +68,14 @@ end
 
 
 def edit
-@article = Article.find(params[:id])
+
 end
 
 
 
 def show
 
-@article= Article.find(params[:id])
+
 
 end
 
@@ -80,6 +84,10 @@ private
 def article_params
 params.require(:article).permit(:title, :description)
 #to pass in what has been submitted from article
+end
+
+def set_article
+@article = Article.find(params[:id])
 end
 
 end
