@@ -33,7 +33,7 @@ def create
 @article= Article.new(article_params)
 #pass in what has been submitted though article_params method
 if @article.save
-flash[:notice]= "Article was successfully create"
+flash[:notice]= "Article was successfully created!"
 
 redirect_to article_path(@article)
 
