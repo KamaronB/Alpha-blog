@@ -12,7 +12,7 @@ def destroy
 #find article by it's id
 @article.destroy
 #destroy action from model
-flash[:notice] = "Article was successfully deleted"
+flash[:danger] = "Article was successfully deleted"
 #show notice that it was destroyed
 redirect_to articles_path
 #Redirect to articles
@@ -33,7 +33,7 @@ def create
 @article= Article.new(article_params)
 #pass in what has been submitted though article_params method
 if @article.save
-flash[:notice]= "Article was successfully created!"
+flash[:success]= "Article was successfully created!"
 
 redirect_to article_path(@article)
 
@@ -56,7 +56,7 @@ if @article.update(article_params)
 
 
 #if update is pressed and validations are successfull then show a notice
-flash[:notice]= "Article was successfully Updated"
+flash[:success]= "Article was successfully Updated"
 redirect_to article_path(@article)
 #then redirect to the article path
 
