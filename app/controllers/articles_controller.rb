@@ -30,7 +30,10 @@ end
 def create
 
 
+
+
 @article= Article.new(article_params)
+@article.user= User.first
 #pass in what has been submitted though article_params method
 if @article.save
 flash[:success]= "Article was successfully created!"
@@ -40,7 +43,7 @@ redirect_to article_path(@article)
 else
 render 'new'
 #if fails render new.html.erb template again
- end 
+ end
 end
 
 
@@ -60,7 +63,7 @@ flash[:success]= "Article was successfully Updated"
 redirect_to article_path(@article)
 #then redirect to the article path
 
-else 
+else
 render 'edit'
 #if fails render edit template again
 end
